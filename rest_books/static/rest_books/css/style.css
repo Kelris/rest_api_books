@@ -1,0 +1,30 @@
+.btn_my {
+    margin-top: 10px;
+}
+#form_filter {
+    margin-top: 80px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+}
+
+#form_import {
+    margin-top: 80px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+}
+
+#create_form {
+    margin-top: 80px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+}
+
+#books_counter_column {
+    background-color: #e9ecef;
+}
+
+
+
+#form_field {
+    margin-top: 10px;
+}

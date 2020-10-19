@@ -1,0 +1,33 @@
+{% extends "rest_books/base.html" %}
+{% load static %}
+
+{% block content %}
+    <form method="post" class="form-group col-auto col-sm-auto col-md-4 col-lg-4" id="create_form" xmlns="http://www.w3.org/1999/html">
+        {% csrf_token %}
+
+        <div id="form_field">{{ form.title}}</div>
+        {{ form.errors.title }}
+        <div id="form_field">{{ form.author}}</div>
+        {{ form.errors.author }}
+        <div id="form_field">Publication year:</div>
+        <div>{{ form.pub_year}}</div>
+        {{ form.errors.pub_year }}
+        <div id="form_field">{{ form.isbn}}</div>
+        {{ form.errors.isbn }}
+        <div id="form_field">{{ form.num_pages}}</div>
+        {{ form.errors.num_pages }}
+        <div id="form_field">{{ form.cover_link}}</div>
+        {{ form.errors.cover_link }}
+        <div id="form_field">Language:</div>
+        <div>{{ form.language}}</div>
+        {{ form.errors.language }}
+
+        <button type="submit" class="btn_my btn btn-secondary">Update</button>
+    </form>
+
+<script type="text/javascript" src="{% static "rest_books/js/create_book_form.js" %}"></script>
+
+{% endblock %}
+
+
+

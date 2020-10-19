@@ -1,0 +1,52 @@
+{% extends "rest_books/base.html" %}
+{% load static %}
+
+{% block content %}
+    <form method="get" class="form-group col-auto col-sm-4 col-md-4 col-lg-4" id="form_filter">
+        {% csrf_token %}
+
+        <div id="form_field">{{ my_filter.form.title}}</div>
+        <div id="form_field">{{ my_filter.form.author}}</div>
+        <div id="form_field">{{ my_filter.form.language}}</div>
+        Publication year:
+        <div class="form-inline">
+            <div>{{ my_filter.form.start_date}}</div>&nbsp
+            <div>{{ my_filter.form.end_date}}</div>
+            {{ my_filter.form.errors }}
+        </div>
+        <button type="submit" class="btn_my btn btn-secondary">Search</button>
+    </form>
+
+
+    <table class="table">
+        <thead>
+            <tr class="thead-light header" id="myHeader">
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Publication year</th>
+                <th scope="col">ISBN</th>
+                <th scope="col">Number of pages</th>
+                <th scope="col">Cover link</th>
+                <th scope="col">Language</th>
+            </tr>
+        </thead>
+
+      {% for book in my_filter.qs %}
+          <tbody>
+              <tr>
+                  <th scope="row" id="books_counter_column">{{ forloop.counter }}</th>
+                  <td>{{ book.id }}</td>
+                  <td>{{ book.title }}</td>
+                  <td>{{ book.author }}</td>
+                  <td>{{ book.pub_year }}</td>
+                  <td>{{ book.isbn }}</td>
+                  <td>{{ book.num_pages }}</td>
+                  <td>{{ book.cover_link }}</td>
+                  <td>{{ book.language }}</td>
+              </tr>
+          </tbody>
+      {% endfor %}
+    </table>
+{% endblock %}

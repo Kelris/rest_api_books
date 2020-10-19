@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'rest_books.apps.RestBooksConfig',
+    'languages',
+    'django_filters',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +131,8 @@ STATICFILES_DIRS = [
 
 
 LOGIN_REDIRECT_URL = '/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 3
+}

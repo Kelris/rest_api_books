@@ -1,0 +1,47 @@
+{% extends "rest_books/base.html" %}
+{% load static %}
+
+{% block content %}
+    <form method="post" id="form_import" class="col-6" action={% url 'import_view' %}>
+        {% csrf_token %}
+
+        <div class="form-row">
+            <div class="col-3">{{ form.key_word }}</div>
+            <button type="submit" class="btn btn-secondary col-3">Look for a book and import it!</button>
+        </div>
+
+        <small id="emailHelp" class="form-text text-muted">
+            Please note that only correct search result (without any missing information) will be saved in the database <b>automatically</b>.
+        </small>
+    </form>
+
+
+    <h4>Search result:</h4>
+
+    <table class="table">
+        <thead>
+            <tr class="thead-light">
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Publication year</th>
+                <th scope="col">ID type</th>
+                <th scope="col">ID</th>
+                <th scope="col">Number of pages</th>
+                <th scope="col">Cover link</th>
+                <th scope="col">Language</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{{ search_result_title }}</th>
+                <td>{{ search_result_author }}</td>
+                <td>{{ search_result_pub_year }}</td>
+                <td>{{ search_result_id_type }}</td>
+                <td>{{ search_result_id }}</td>
+                <td>{{ search_result_num_pages }}</td>
+                <td>{{ search_result_cover_link }}</td>
+                <td>{{ search_result_language }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
