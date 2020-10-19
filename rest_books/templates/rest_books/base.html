@@ -24,22 +24,22 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/books"> All Books</a>
+                    <a class="nav-link" href="{% url 'books' %}"> All Books</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/books/import">Import from Google Books API</a>
+                    <a class="nav-link" href="{% url 'import_view' %}">Import from Google Books API</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/books/1">Update Book [id] </a>
+                    <a class="nav-link" href="{% url 'update_book' id=1 %}">Update Book [id] </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/books/create">Create Book</a>
+                    <a class="nav-link" href="{% url 'create_book' %}">Create Book</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/rest_books">REST Books </a>
+                    <a class="nav-link" href="{% url 'books-list' %}">REST Books </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/rest_books/1">REST detail/update/delete [id] </a>
+                    <a class="nav-link" href="{% url 'rest_det_upd_del' id=1 %}">REST detail/update/delete [id] </a>
                 </li>
             </ul>
         </div>

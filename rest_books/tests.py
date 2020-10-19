@@ -16,12 +16,12 @@ class BookTests(TestCase):
 
     def test_url_names(self):
         self.assertEqual(reverse('books'), '/books/')
-        self.assertEqual(reverse('update_create_book', kwargs={'id': 1}), '/books/1')
+        self.assertEqual(reverse('update_book', kwargs={'id': 1}), '/books/1')
         self.assertEqual(reverse('import_view'), '/books/import')
 
         response = self.client.get(reverse('books'))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        response = self.client.get(reverse('update_create_book', kwargs={'id': 1}))
+        response = self.client.get(reverse('update_book', kwargs={'id': 1}))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         response = self.client.get(reverse('import_view'))
         self.assertEqual(response.status_code, status.HTTP_200_OK)

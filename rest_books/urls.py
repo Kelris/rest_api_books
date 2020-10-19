@@ -23,7 +23,7 @@ urlpatterns = [
     path('books/', filtered_books, name='books'),
     path('books/import', ImportBooks.as_view(), name='import_view'),
     path('books/create/', CreateBookView.as_view(), name='create_book'),
-    path('books/<int:id>', UpdateBookView.as_view(), name='update_create_book'),
+    path('books/<int:id>', UpdateBookView.as_view(), name='update_book'),
 
     path('process_creation', ProcessCreateBook.as_view(), name='process_creation'),
 
