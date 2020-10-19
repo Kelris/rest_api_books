@@ -44,21 +44,6 @@ class UpdateBookView(UpdateView):
         return get_object_or_404(Book, id=object_id)
 
 
-class ProcessCreateBook(View):
-    def post(self, request, *args, **kwargs):
-        data = json.loads(request.body)
-        Book.objects.create(
-            title=data['form']['title'],
-            author=data['form']['author'],
-            pub_date=data['form']['pub_date'],
-            isbn=data['form']['isbn'],
-            num_pages=data['form']['num_pages'],
-            cover_link=data['form']['cover_link'],
-            language=data['form']['language'],
-        )
-        return JsonResponse('New Book !!!!!!', safe=False)
-
-
 class ImportBooks(View):
     form_class = SearchBookForm
     template_name = 'rest_books/import_books.html'
