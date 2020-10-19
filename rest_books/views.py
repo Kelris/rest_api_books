@@ -1,5 +1,4 @@
 import json
-import os
 
 import requests
 from django.core.exceptions import ValidationError
@@ -127,7 +126,7 @@ class ImportBooks(View):
 
     def search(self, value):
         params = {'q': value, 'maxResults': '1', 'printType': 'books'}
-        response = requests.get(url=os.environ["GBA_url_rab"], params=params)
+        response = requests.get(url="https://www.googleapis.com/books/v1/volumes/", params=params)
         response_json = response.json()
         books_json = response_json.get('items')
         return books_json
